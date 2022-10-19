@@ -3,27 +3,33 @@
 
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-<title>Lab 05 Color Array KEY</title>
+<title>Lab 06 Slider KEY</title>
 
 </HEAD>
 
 <BODY>
 
-
 <canvas id="gl-canvas" width="512" height="512" "style=border >
 Oops ... your browser doesn't support the HTML5 canvas element
 </canvas>
+<div>
+expansion 1 <input id="slider" type="range"
+ min="1" max="9" step="1" value="1" />
+9
+</div>
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 #version 300 es
 in vec4 aPosition;
+in vec4 aColor;
 out vec4 vColor;
+
 void
 main()
 {
   gl_PointSize = 20.0;
   gl_Position = aPosition;
-  vColor = vec4((1.0+aPosition.xyz)/2.0,1.0);
+  vColor = aColor;
 }
 </script>
 
@@ -36,7 +42,6 @@ void
 main()
 {
   fColor = vColor;
-  //gl_FragColor = vec4(1.0,0.0,0.0,1.0);
 }
 </script>
 <script type="text/javascript" src="..Common/utility.js"></script>
